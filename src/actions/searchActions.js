@@ -4,7 +4,6 @@ import {
   SET_LOADING,
   SEARCH_ERROR,
 } from "../actions/types";
-import youtube from "../youtube";
 import Axios from "axios";
 
 //Fetch data
