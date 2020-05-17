@@ -1,3 +1,7 @@
+## About
+
+This project is a Song Searcher which can be used to fetch song from youtube & it also takes the lyrics from lyricsovh. It uses redux to manage the states & materialize css for styling.
+
 ### To run the project use `npm start`
 
 Runs the app in the development mode.<br />
@@ -13,7 +17,3 @@ It correctly bundles React in production mode and optimizes the build for the be
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
-
-## About
-
-This project is a Song Searcher which can be used to fetch song from youtube & it also takes the lyrics from lyricsovh. It uses redux to manage the states & materialize css for styling
