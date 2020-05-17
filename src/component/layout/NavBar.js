@@ -4,8 +4,8 @@ import PropTypes from "prop-types";
 const NavBar = ({ name }) => {
   return (
     <nav>
-      <div class='nav-wrapper blue'>
-        <div class='brand-logo center'>{name}</div>
+      <div className='nav-wrapper blue'>
+        <div className='brand-logo center'>{name}</div>
       </div>
     </nav>
   );

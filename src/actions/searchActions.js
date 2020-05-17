@@ -5,6 +5,7 @@ import {
   SEARCH_ERROR,
 } from "../actions/types";
 import youtube from "../youtube";
+import Axios from "axios";
 
 //Fetch data
 export const getResults = (title, artistName) => async (dispatch) => {
@@ -12,16 +13,19 @@ export const getResults = (title, artistName) => async (dispatch) => {
     setLoading();
     let lyricsData = "";
     //Youtube API call
-    const response = await youtube.get("/search", {
-      headers: { "Content-Type": "application/json" },
-      params: {
-        maxResults: 10,
-        key: "AIzaSyBGeD6dCCkPZSBc9i9jL4tMEo_9m3Wxnwg",
-        q: `${artistName} - ${title}`,
-        part: "snippet",
-      },
-    });
-    console.log(response.data.items);
+    const response = await Axios(
+      "https://www.googleapis.com/youtube/v3/search",
+      {
+        headers: { "Content-Type": "application/json" },
+        params: {
+          maxResults: 10,
+          key: "AIzaSyBjt63QrdVlUqGEEIST49_GtAnEwiqAW6U",
+          q: `${artistName} - ${title}`,
+          part: "snippet",
+        },
+      }
+    );
+    console.log(response.data.item);
     const res = await fetch(`https://api.lyrics.ovh/v1/${artistName}/${title}`);
     const lyrics = await res.json();
     console.log(lyrics);

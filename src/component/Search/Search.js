@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { getResults, clearResults } from "../../actions/searchActions";
@@ -7,7 +7,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import Card from "./Card";
 
 const Search = ({
-  search: { loading, results, lyrics },
+  search: { loading, results, lyrics, error },
   getResults,
   clearResults,
 }) => {
@@ -24,7 +24,14 @@ const Search = ({
     clearResults();
     setTitle("");
     setArtist("");
+    M.toast({ html: `Cleared the results` });
   };
+  //Error handleing toast
+  useEffect(() => {
+    if (error !== null) {
+      M.toast({ html: `Search error: ${error}` });
+    }
+  }, [error]);
 
   return (
     <div>
@@ -56,11 +63,14 @@ const Search = ({
         </div>
       </div>
       <div className='row'>
-        <div class='waves-effect waves-light btn blue ' onClick={handleSubmit}>
+        <div
+          className='waves-effect waves-light btn blue '
+          onClick={handleSubmit}
+        >
           SEARCH
         </div>
         <div
-          class='waves-effect waves-light btn red right'
+          className='waves-effect waves-light btn red right'
           onClick={handleClear}
         >
           CLEAR
