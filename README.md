@@ -1,6 +1,6 @@
 ## About
 
-This project is a Song Searcher which can be used to fetch song from youtube & it also takes the lyrics from lyricsovh. It uses redux to manage the states & materialize css for styling.
+This project is a Song Searcher which can be used to fetch song from youtube & it also takes the lyrics from lyricsovh. It uses redux to manage the states & materialize css for styling. Press the play button in the bottom to bring the media player
 
 ### To run the project use `npm start`
 
