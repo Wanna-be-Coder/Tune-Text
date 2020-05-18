@@ -1,7 +1,11 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { getResults, clearResults } from "../../actions/searchActions";
+import {
+  getResults,
+  clearResults,
+  setLoading,
+} from "../../actions/searchActions";
 import PreLoader from "../layout/Preloader";
 import M from "materialize-css/dist/js/materialize.min.js";
 import Card from "./Card";
@@ -10,6 +14,7 @@ const Search = ({
   search: { loading, results, lyrics, error },
   getResults,
   clearResults,
+  setLoading,
 }) => {
   const [title, setTitle] = useState("");
   const [artistName, setArtist] = useState("");
@@ -17,6 +22,7 @@ const Search = ({
     if (title === "" || artistName === "") {
       M.toast({ html: `Please enter a title & an artist` });
     } else {
+      setLoading();
       getResults(title, artistName);
     }
   };
@@ -97,4 +103,8 @@ const mapStateToProps = (state) => ({
   search: state.search,
 });
 
-export default connect(mapStateToProps, { getResults, clearResults })(Search);
+export default connect(mapStateToProps, {
+  getResults,
+  clearResults,
+  setLoading,
+})(Search);
