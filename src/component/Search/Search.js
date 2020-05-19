@@ -82,7 +82,7 @@ const Search = ({
           CLEAR
         </div>
       </div>
-      {results === null ? (
+      {results === null && !loading ? (
         <Fragment></Fragment>
       ) : (
         <ul className='collection'>
