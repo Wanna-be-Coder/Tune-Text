@@ -12,13 +12,14 @@ export const getResults = (title, artistName) => async (dispatch) => {
     setLoading();
     let lyricsData = "";
     //Youtube API call
+    const key = "AIzaSyBiYtJRzvDjmAyHxXImOXdwTo6bsDO_RSI";
     const response = await Axios(
       "https://www.googleapis.com/youtube/v3/search",
       {
         headers: { "Content-Type": "application/json" },
         params: {
           maxResults: 10,
-          key: "AIzaSyBjt63QrdVlUqGEEIST49_GtAnEwiqAW6U",
+          key: key,
           q: `${artistName} - ${title}`,
           part: "snippet",
         },
